@@ -15,17 +15,14 @@ window.onload = () => {
 
   boton.addEventListener("click", () => {
     // Elegir uno aleatorio de cada array
-    const pron = pronombres[Math.floor(Math.random() * pronombres.length)];
-    const adj = adjetivos[Math.floor(Math.random() * adjetivos.length)];
-    const sust = sustantivos[Math.floor(Math.random() * sustantivos.length)];
-    const dom = dominios[Math.floor(Math.random() * dominios.length)];
-
-    const dominio = pron + adj + sust + dom;
-
-    // Mostrarlo en la lista
-    const li = document.createElement("li");
-    li.className = "list-group-item";
-    li.textContent = dominio;
-    lista.appendChild(li);
+    for (let pron = 0; pron < pronombres.length; pron++) {
+      for (let adj = 0; adj < adjetivos.length; adj++) {
+        for (let sus = 0; sus < sustantivos.length; sus++) {
+          for (let dom = 0; dom < dominios.length; dom++) {
+            lista.innerHTML += "<li class='list-group-item'>" + pronombres[pron] + adjetivos[adj] + sustantivos[sus] + dominios[dom] + "</li>"
+          }
+        }
+      }
+    }
   });
 };
